@@ -18,7 +18,9 @@ sql-journal A List of Querying Ingridients
 
 ♙ Grab Main Table With Collapsed Sub Table ♙
 
-    SELECT * FROM academic_works JOIN(SELECT 
+    SELECT * FROM academic_works 
+    LEFT JOIN(
+    SELECT 
     authors.academic_works_id, 
     GROUP_CONCAT(
         JSON_OBJECT(
