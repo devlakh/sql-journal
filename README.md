@@ -1,9 +1,10 @@
 # sql-journal
 sql-journal A List of Querying Ingridients
 
-♙ Collapse ROWS Based on A Column with identical data ♙
+♙ Collapse ROWS Based on A Column with identical data - STRING ♙
     
-    SELECT JSON_ARRAY(JSON_OBJECT('<key1>',<table>.<column1>), JSON_OBJECT('<key2>',<table>.<column2>)) 
-    AS <new column name>
-    FROM <table>
-    GROUP BY <table>.<column with identical data>;
+    SELECT 
+    GROUP_CONCAT(authors.given_name, '<column separetor>' ,authors.date_of_birth SEPARATOR '<row separator>') 
+    AS authors_data
+    FROM authors
+    GROUP BY authors.academic_works_id;
